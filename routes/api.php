@@ -35,3 +35,4 @@ Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
 */
 
 Route::apiResource( 'members', MemberController::class );
+Route::get('dashboard/members/{member}',[MemberController::class, 'fullIndex']);

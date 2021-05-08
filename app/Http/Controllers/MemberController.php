@@ -21,6 +21,19 @@ class MemberController extends Controller {
     }
 
     /**
+     * Show full data of the resource
+     *
+     * @param Member $member
+     * @return JsonResponse
+     */
+    public function fullIndex(Member $member): JsonResponse
+    {
+        return response()->json([
+            'success' => true,
+            'data' => $member
+        ]);
+    }
+    /**
     * Store a newly created resource in storage.
     *
     * @param  \Illuminate\Http\Request  $request
