@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,12 @@ Route::apiResource( 'products', ProductController::class );
 Route::apiResource( 'meta', MetaController::class )->except(['store', 'destroy']);
 Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
 
+
+
+/*
+|--------------------------------------------------------------------------
+| Members Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::apiResource( 'members', MemberController::class );

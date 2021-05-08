@@ -23,10 +23,8 @@ class MetaController extends Controller {
             }
             array_push( $arr[$metum['page']], $metum );
         }
-        return response()->json( [
-            'success' => true,
-            'data' => $arr
-        ] );
+
+        return $this->jsonResponse( $arr );
 
     }
 
@@ -38,10 +36,8 @@ class MetaController extends Controller {
 
     public function fullIndex(): JsonResponse {
         $meta = Meta::all();
-        return response()->json( [
-            'success' => true,
-            'data' => $meta
-        ] );
+        return $this->jsonResponse( $meta );
+
     }
 
     /**
@@ -52,10 +48,8 @@ class MetaController extends Controller {
     */
 
     public function show( Meta $metum ): jsonResponse {
-        return response()->json( [
-            'success' => true,
-            'data' => $metum
-        ] );
+        return $this->jsonResponse( $metum );
+
     }
 
     /**
@@ -69,10 +63,7 @@ class MetaController extends Controller {
     public function update( Request $request, Meta $metum ) {
         $validated = Meta::validate( $request );
         $metum->update( $validated );
-        return response()->json( [
-            'success' => true,
-            'data' => $metum
-        ] );
+        return $this->jsonResponse( $metum );
 
     }
 
