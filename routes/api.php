@@ -58,6 +58,17 @@ Route::get('dashboard/certificates',[CertificateController::class, 'showFull']);
 Route::post('/mails/contact-us', [MailController::class, 'contactUs']);
 
 
+
+
+/*
+|--------------------------------------------------------------------------
+| Images Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/images', [ImagesController::class, 'store'])->name('images.store');
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Auth Routes
