@@ -6,7 +6,16 @@ use App\Models\Member;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class MemberController extends Controller {
+class MemberController extends ResourceController
+{
+
+
+    public function __construct()
+    {
+        $this->middleware('auth:api')->only(['store', 'update', 'destroy']);
+    }
+
+
     /**
     * Display a listing of the resource.
     *
