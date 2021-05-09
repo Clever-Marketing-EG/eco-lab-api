@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,35 @@ Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
 
 Route::apiResource( 'members', MemberController::class );
 Route::get('dashboard/members/{member}',[MemberController::class, 'fullIndex']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Certificates Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::apiResource( 'certificates', CertificateController::class );
+Route::get('dashboard/certificates/{certificate}',[CertificateController::class, 'showFull']);
+
+/*
+|--------------------------------------------------------------------------
+| Mails Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/mails/contact-us', [MailController::class, 'contactUs']);
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Images Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/images', [ImagesController::class, 'store'])->name('images.store');
+
+
 
 /*
 |--------------------------------------------------------------------------

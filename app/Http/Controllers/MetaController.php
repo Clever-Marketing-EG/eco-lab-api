@@ -6,7 +6,8 @@ use App\Models\Meta;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class MetaController extends Controller {
+class MetaController extends ResourceController
+{
     /**
     * Display a listing of the resource.
     *
