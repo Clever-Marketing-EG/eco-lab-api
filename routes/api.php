@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MetaController;
@@ -37,6 +38,15 @@ Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
 
 Route::apiResource( 'members', MemberController::class );
 Route::get('dashboard/members/{member}',[MemberController::class, 'fullIndex']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Mails Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/mails/contact-us', [MailController::class, 'contactUs']);
+
 
 /*
 |--------------------------------------------------------------------------
