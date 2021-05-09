@@ -48,7 +48,7 @@ Route::get('dashboard/members/{member}',[MemberController::class, 'fullIndex']);
 */
 
 Route::apiResource( 'certificates', CertificateController::class );
-Route::get('dashboard/certificates',[CertificateController::class, 'showFull']);
+Route::get('dashboard/certificates/{certificate}',[CertificateController::class, 'showFull']);
 
 /*
 |--------------------------------------------------------------------------
