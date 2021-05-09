@@ -7,6 +7,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +66,7 @@ Route::post('/mails/contact-us', [MailController::class, 'contactUs']);
 | Images Routes
 |--------------------------------------------------------------------------
 */
-Route::post('/images', [ImageController::class, 'store'])->name('images.store');
+Route::post('/images', [ImagesController::class, 'store'])->name('images.store');
 
 
 
