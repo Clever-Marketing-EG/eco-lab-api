@@ -10,11 +10,6 @@ class MemberController extends ResourceController
 {
 
 
-    public function __construct()
-    {
-        $this->middleware('auth:api')->only(['store', 'update', 'destroy']);
-    }
-
 
     /**
     * Display a listing of the resource.
