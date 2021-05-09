@@ -16,7 +16,7 @@ class MemberController extends Controller {
     public function index(): JsonResponse {
         return response()->json( array_merge(
             ['success' => true],
-            trans( 'members' )
+            ['data'=>trans( 'members' )]
         ) );
     }
 
