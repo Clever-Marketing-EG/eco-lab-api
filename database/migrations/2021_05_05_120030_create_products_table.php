@@ -17,11 +17,13 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('name_ar');
-            $table->string('description');
-            $table->string('description_ar');
+            $table->text('description');
+            $table->text('description_ar');
             $table->text('points');
             $table->text('points_ar');
             $table->bigInteger('price');
+            $table->string('image_url');
+            $table->text('additional_images')->nullable();
         });
     }
 

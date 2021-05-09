@@ -14,8 +14,10 @@ class Product extends Model
 
     protected $casts = [
         'points' => 'array',
-        'points_ar' => 'array'
+        'points_ar' => 'array',
+        'additional_images' => 'array'
     ];
+
     public $timestamps = false;
 
     /**
@@ -35,21 +37,24 @@ class Product extends Model
             'points.*' => 'required|string:min:3',
             'points_ar' => 'required|array|min:1',
             'points_ar.*' => 'required|string:min:3',
-            'price' => 'required|integer|min:0'
+            'price' => 'required|integer|min:0',
+            'image_url' => 'required|url',
+            'additional_images' => 'array|nullable',
+            'additional_images.*' => 'required|url'
         ]);
     }
 
 
     public static function loadEnglish()
     {
-        return Product::select('id', 'name', 'description', 'points', 'price')
+        return Product::select('id', 'name', 'description', 'points', 'price', 'image_url', 'additional_images')
             ->get()
             ->toArray();
     }
 
     public static function loadArabic()
     {
-        return Product::select('id', 'name_ar as name', 'description_ar as description', 'points_ar as points', 'price')
+        return Product::select('id', 'name_ar as name', 'description_ar as description', 'points_ar as points', 'price', 'image_url', 'additional_images')
             ->get()
             ->toArray();
     }
@@ -60,14 +65,15 @@ class Product extends Model
      * @return mixed
      */
     public function loadLocale()
+    
     {
         if (App::getLocale() === 'ar') {
             return $this->where('id', $this['id'])->first([
-                'id', 'name_ar as name', 'description_ar as description', 'points_ar as points', 'price'
+                'id', 'name_ar as name', 'description_ar as description', 'points_ar as points', 'price', 'image_url', 'additional_images'
             ]);
         } else {
             return $this->where('id', $this['id'])->first([
-                'id', 'name', 'description', 'points', 'price'
+                'id', 'name', 'description', 'points', 'price', 'image_url', 'additional_images'
             ]);
         }
     }
