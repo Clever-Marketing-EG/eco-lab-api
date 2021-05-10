@@ -36,7 +36,6 @@ class ProductFactory extends Factory
             'points' => $this->randomStringArray(),
             'points_ar' => $this->randomStringArray(),
             'price' => $this->faker->numberBetween(0, 1000),
-            'image_url' => $this->faker->imageUrl(),
             'additional_images' => [$this->faker->imageUrl(), $this->faker->imageUrl(), $this->faker->imageUrl()]
         ];
     }
