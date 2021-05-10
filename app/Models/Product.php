@@ -38,7 +38,7 @@ class Product extends Model
             'points_ar' => 'required|array|min:1',
             'points_ar.*' => 'required|string:min:3',
             'price' => 'required|integer|min:0',
-            'image_url' => 'required|url',
+            // 'image_url' => 'required|url',
             'additional_images' => 'array|nullable',
             'additional_images.*' => 'required|url'
         ]);
@@ -47,14 +47,14 @@ class Product extends Model
 
     public static function loadEnglish()
     {
-        return Product::select('id', 'name', 'description', 'points', 'price', 'image_url', 'additional_images')
+        return Product::select('id', 'name', 'description', 'points', 'price', 'additional_images')
             ->get()
             ->toArray();
     }
 
     public static function loadArabic()
     {
-        return Product::select('id', 'name_ar as name', 'description_ar as description', 'points_ar as points', 'price', 'image_url', 'additional_images')
+        return Product::select('id', 'name_ar as name', 'description_ar as description', 'points_ar as points', 'price', 'additional_images')
             ->get()
             ->toArray();
     }
@@ -65,15 +65,15 @@ class Product extends Model
      * @return mixed
      */
     public function loadLocale()
-    
+
     {
         if (App::getLocale() === 'ar') {
             return $this->where('id', $this['id'])->first([
-                'id', 'name_ar as name', 'description_ar as description', 'points_ar as points', 'price', 'image_url', 'additional_images'
+                'id', 'name_ar as name', 'description_ar as description', 'points_ar as points', 'price', 'additional_images'
             ]);
         } else {
             return $this->where('id', $this['id'])->first([
-                'id', 'name', 'description', 'points', 'price', 'image_url', 'additional_images'
+                'id', 'name', 'description', 'points', 'price',  'additional_images'
             ]);
         }
     }
