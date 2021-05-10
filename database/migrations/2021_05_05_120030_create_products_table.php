@@ -22,7 +22,6 @@ class CreateProductsTable extends Migration
             $table->text('points');
             $table->text('points_ar');
             $table->bigInteger('price');
-            $table->string('image_url');
             $table->text('additional_images')->nullable();
         });
     }
