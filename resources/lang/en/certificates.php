@@ -2,4 +2,5 @@
 
 use App\Models\Certificate;
 
-return Certificate::loadEnglish();
+$certificate = Certificate::loadEnglish();
+return ['data' => $certificate];

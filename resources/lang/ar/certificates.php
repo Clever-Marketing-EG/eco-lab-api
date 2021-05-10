@@ -2,4 +2,5 @@
 
 use App\Models\Certificate;
 
-return Certificate::loadArabic();
+$certificate = Certificate::loadArabic();
+return ['data' => $certificate];

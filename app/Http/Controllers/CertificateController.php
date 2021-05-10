@@ -14,10 +14,9 @@ class CertificateController extends Controller {
     */
 
     public function index(): JsonResponse {
-        return response()->json( array_merge(
-            ['success' => true],
-            ['data'=>trans( 'certificates' )]
-        ) );
+
+        $certificates = trans('certificates');
+        return $this->jsonResponse($certificates);
     }
 
     /**
