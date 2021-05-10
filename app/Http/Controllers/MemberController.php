@@ -30,7 +30,7 @@ class MemberController extends ResourceController
      * @param Member $member
      * @return JsonResponse
      */
-    public function fullIndex(Member $member): JsonResponse
+    public function showFull(Member $member): JsonResponse
     {
         return response()->json([
             'success' => true,

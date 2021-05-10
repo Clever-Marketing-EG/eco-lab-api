@@ -21,6 +21,8 @@ use App\Http\Controllers\ImagesController;
 */
 
 Route::apiResource( 'products', ProductController::class );
+Route::get('dashboard/products/{product}',[ProductController::class, 'showFull']);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +41,7 @@ Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
 */
 
 Route::apiResource( 'members', MemberController::class );
-Route::get('dashboard/members/{member}',[MemberController::class, 'fullIndex']);
+Route::get('dashboard/members/{member}',[MemberController::class, 'showFull']);
 
 
 /*

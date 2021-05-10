@@ -19,6 +19,21 @@ class ProductController extends ResourceController
         return $this->jsonResponse($products);
     }
 
+
+    /**
+     * Show full data of the resource
+     *
+     * @param Product $product
+     * @return JsonResponse
+     */
+    public function showFull(Product $product): JsonResponse
+    {
+        return response()->json([
+            'success' => true,
+            'data' => $product
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
