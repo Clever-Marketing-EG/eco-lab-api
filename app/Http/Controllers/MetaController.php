@@ -25,7 +25,11 @@ class MetaController extends ResourceController
             array_push( $arr[$metum['page']], $metum );
         }
 
-        return $this->jsonResponse( $arr );
+        // return $this->jsonResponse( $arr );
+        return response()->json([
+            'success' => true,
+            'data' => $arr
+        ]);
 
     }
 
@@ -49,7 +53,7 @@ class MetaController extends ResourceController
     */
 
     public function show( Meta $metum ): jsonResponse {
-        
+
         $metum = $metum->loadLocale();
         return $this->jsonResponse( $metum );
 
