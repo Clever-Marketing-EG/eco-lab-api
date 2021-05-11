@@ -30,7 +30,8 @@ Route::get('dashboard/products/{product}',[ProductController::class, 'showFull']
 |--------------------------------------------------------------------------
 */
 Route::apiResource( 'meta', MetaController::class )->except(['store', 'destroy']);
-Route::get('dashboard/meta',[MetaController::class, ['fullIndex', 'showFull']]);
+Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
+Route::get('dashboard/meta/{metum}',[MetaController::class, 'showFull']);
 
 
 
