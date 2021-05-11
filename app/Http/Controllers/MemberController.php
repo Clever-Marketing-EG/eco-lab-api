@@ -18,10 +18,9 @@ class MemberController extends ResourceController
     */
 
     public function index(): JsonResponse {
-        return response()->json( array_merge(
-            ['success' => true],
-            ['data'=>trans( 'members' )]
-        ) );
+
+        $member = trans('members');
+        return $this->jsonResponse($member);
     }
 
     /**
