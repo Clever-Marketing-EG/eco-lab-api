@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder {
 
                 UserSeeder::class,
                 MetaSeeder::class,
-                MemberSeeder::class,
-                ProductSeeder::class,
-                CertificateSeeder::class
+                //MemberSeeder::class,
+                //ProductSeeder::class,
+                //CertificateSeeder::class
 
             ] );
         }
