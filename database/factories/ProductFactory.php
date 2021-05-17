@@ -14,6 +14,13 @@ class ProductFactory extends Factory
      */
     protected $model = Product::class;
 
+
+    private function randomStringArray()
+    {
+        return [$this->faker->sentence, $this->faker->sentence, $this->faker->sentence];
+    }
+
+
     /**
      * Define the model's default state.
      *
@@ -22,7 +29,14 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word,
+            'name_ar' => $this->faker->word,
+            'description' => $this->faker->text,
+            'description_ar' => $this->faker->text,
+            'points' => $this->randomStringArray(),
+            'points_ar' => $this->randomStringArray(),
+            'price' => $this->faker->numberBetween(0, 1000),
+            'additional_images' => [$this->faker->imageUrl(), $this->faker->imageUrl(), $this->faker->imageUrl()]
         ];
     }
 }
