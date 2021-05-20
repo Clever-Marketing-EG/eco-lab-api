@@ -29,7 +29,7 @@ class MetaSeeder extends Seeder
                 'content' => 'Header !',
                 'content_ar' => 'محتوى',
                 'type' => 'image',
-                'page' => 'image'
+                'page' => 'home'
             ],
             [
                 'name'=> 'about_us_header',
