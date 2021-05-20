@@ -22,6 +22,7 @@ use App\Http\Controllers\ImagesController;
 
 Route::apiResource( 'products', ProductController::class );
 Route::get('dashboard/products/{product}',[ProductController::class, 'showFull']);
+Route::delete('/images/products/{image}', [ProductController::class, 'destroyImage']);
 
 
 /*
