@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
@@ -20,9 +21,8 @@ use App\Http\Controllers\ImagesController;
 |
 */
 
-Route::apiResource( 'products', ProductController::class );
-Route::get('dashboard/products/{product}',[ProductController::class, 'showFull']);
-Route::delete('/images/products/{image}', [ProductController::class, 'destroyImage']);
+Route::apiResource('products', ProductController::class);
+Route::get('dashboard/products/{product}', [ProductController::class, 'showFull']);
 
 
 /*
@@ -30,9 +30,9 @@ Route::delete('/images/products/{image}', [ProductController::class, 'destroyIma
 | Meta Routes
 |--------------------------------------------------------------------------
 */
-Route::apiResource( 'meta', MetaController::class )->except(['store', 'destroy']);
-Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
-Route::get('dashboard/meta/{metum}',[MetaController::class, 'showFull']);
+Route::apiResource('meta', MetaController::class)->except(['store', 'destroy']);
+Route::get('dashboard/meta', [MetaController::class, 'fullIndex']);
+Route::get('dashboard/meta/{metum}', [MetaController::class, 'showFull']);
 
 
 
@@ -42,8 +42,8 @@ Route::get('dashboard/meta/{metum}',[MetaController::class, 'showFull']);
 |--------------------------------------------------------------------------
 */
 
-Route::apiResource( 'members', MemberController::class );
-Route::get('dashboard/members/{member}',[MemberController::class, 'showFull']);
+Route::apiResource('members', MemberController::class);
+Route::get('dashboard/members/{member}', [MemberController::class, 'showFull']);
 
 
 /*
@@ -52,9 +52,18 @@ Route::get('dashboard/members/{member}',[MemberController::class, 'showFull']);
 |--------------------------------------------------------------------------
 */
 
-Route::apiResource( 'certificates', CertificateController::class );
-Route::get('dashboard/certificates/{certificate}',[CertificateController::class, 'showFull']);
+Route::apiResource('certificates', CertificateController::class);
+Route::get('dashboard/certificates/{certificate}', [CertificateController::class, 'showFull']);
 
+
+/*
+|--------------------------------------------------------------------------
+| Partners Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::apiResource('partners', PartnerController::class);
+Route::get('dashboard/partners/{partner}', [PartnerController::class, 'showFull']);
 /*
 |--------------------------------------------------------------------------
 | Mails Routes
@@ -71,6 +80,7 @@ Route::post('/mails/contact-us', [MailController::class, 'contactUs']);
 |--------------------------------------------------------------------------
 */
 Route::post('/images', [ImagesController::class, 'store'])->name('images.store');
+Route::delete('/images/{image}', [ImagesController::class, 'destroy']);
 
 
 
@@ -99,5 +109,3 @@ Route::group([
     // Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
     //     ->name('password.email');
 });
-
-
