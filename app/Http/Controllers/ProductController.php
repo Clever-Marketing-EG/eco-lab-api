@@ -84,4 +84,6 @@ class ProductController extends ResourceController
         $product->delete();
         return $this->jsonResponse($product);
     }
+
+
 }
