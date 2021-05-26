@@ -156,6 +156,15 @@
                                     </div>
                                 </td>
                             </tr>
+                            <tr>
+                                <td align="left"
+                                    style="font-size:0px;padding:0px 25px;word-break:break-word;">
+                                    <div
+                                        style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
+                                        Email: {{ $data['email']}}
+                                    </div>
+                                </td>
+                            </tr>
 
                             </tbody>
                         </table>
