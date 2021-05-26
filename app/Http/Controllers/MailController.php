@@ -6,6 +6,8 @@ use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
+define('MAIL_SENDER', env('MAIL_SENDER', 'noreply@eco-lab.com'));
+define('MAIL_RECIEVER', env('MAIL_RECIEVER', 'tech@clevermarketing-eg.com'));
 
 class MailController extends Controller
 {
